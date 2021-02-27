@@ -26,6 +26,9 @@ FORM.addEventListener('submit', (e) => {
 // SI ESTAN BIEN, FUNCION: SET OK
 
 function checkInputs() {
+  while (ERRORES.length > 0) {
+    ERRORES.shift()
+  }
 
   if (NOMBRE.value.trim() === '') {
     setError(NOMBRE, 'First Name cannot be empty')
@@ -59,7 +62,7 @@ function checkInputs() {
   } else {
     setOk(PASSWORD2)
   }
-}
+
 
 // FUNCION PARA SETEAR EL ERROR
 // SELECCIONA AL FIELD Y LE AGREGA CLASE ERROR
@@ -84,8 +87,6 @@ function setOk(input) {
   const ALERT = FIELD.querySelector('.error-label')
   FIELD.className = 'form__field ok'
   ALERT.innerText = ""
-  while (ERRORES.length > 0) {
-    ERRORES.shift()
   }
 }
 
