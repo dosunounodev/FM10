@@ -1,7 +1,177 @@
 // edit variables
 
+$primary:       hsl(0, 100%, 74%);
+$success:       hsl(154, 59%, 51%);
+$info:          hsl(248, 32%, 49%);
+$warning:       hsl(246, 25%, 77%);
+$danger:        hsl(249, 10%, 26%) ;
+
 // import: bootstrap entero
 
-@import '../node_modules/bootstrap/scss/bootstrap.scss'
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
 
 // custom css:
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url('../assets/images/bg-intro-mobile.png');
+  background-repeat:repeat;
+  background-size: cover;
+  background-color: $primary;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+
+  @media screen and (min-width: 800px) {
+    background-image: url('../assets/images/bg-intro-desktop.png');  
+  }
+ }
+
+ .container {
+   display: flex;
+   flex-direction: column;
+   padding: 50px 30px;
+   max-width: 1200px;
+ }
+
+// COSTADO INFO
+
+ .info-parrafo {
+   font-weight: 500;
+ }
+
+
+ // COSTADO FORMULARIO
+
+ .form__cta {
+   background-color: $info;
+   border-radius: 10px;
+   padding: 0 50px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 90px;
+   width: 100%;
+   box-shadow: 0 8px 0 0 rgba(0, 0, 0, 0.15);
+   color: white;
+   text-decoration: none;
+   transition: color .2s linear;
+   will-change: color;
+   p {
+     text-align: center;
+     line-height: 1.6;
+     margin: 0;
+     padding: 0;
+   }
+   &:hover {
+     color: $success;
+   }
+  
+   @media screen and (min-width: 800px) {
+     height: 60px;     
+   }
+ }
+
+// FORMULARIO
+
+ .form__form {
+   border-radius: 10px;
+   box-shadow: 0 8px 0 0 rgba(0, 0, 0, 0.15);
+ }
+
+ .form__field {
+   padding: 0;
+   margin-bottom: 20px;
+   position: relative;
+ }
+
+.form__input {
+  width: 100%;
+  height: 55px;
+  border: 2px solid $warning;
+  border-radius: 5px;
+  margin: 0;
+  padding: 0 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: $info;
+}
+
+.form__input:focus {
+  border: 2px solid $info;
+  box-shadow: none;
+  outline: none;
+}
+
+.form__input:active {
+  border: none;
+  outline: none;
+}
+
+.form__submit {
+  width: 100%;
+  height: 55px;
+  border-radius: 10px;
+  background-color: $success;
+  border: none;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 600;
+  box-shadow: 2px 5px 5px hsla(154, 64%, 34%, 0.707);
+}
+
+.form__submit:focus {
+  outline: none;
+}
+
+.disclaimer {
+  color: $warning;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0 10px;
+  a {
+    text-decoration: none;
+    font-weight: 600;
+  }
+  a:hover {
+    color: $success;
+  }
+}
+
+// CASOS DE ERROR
+
+.error-label {
+  color: $primary;
+  text-align: end;
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  font-style: italic;
+  margin-top: 5px;
+  position: relative;
+}
+
+.form__field.error .form__input {
+  border: 2px solid $primary;
+}
+
+.form__field.ok .form__input {
+  border: 2px solid $success;
+}
+
+.form__field img {
+  display: none;
+
+}
+
+.form__field.error img {
+  display: block;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
